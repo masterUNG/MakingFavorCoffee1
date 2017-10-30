@@ -1,5 +1,6 @@
 package rmutsb.mook.chatchon.makingfavorcoffee.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import rmutsb.mook.chatchon.makingfavorcoffee.CoffeeActivity;
 import rmutsb.mook.chatchon.makingfavorcoffee.R;
 import rmutsb.mook.chatchon.makingfavorcoffee.ultility.MyAlertDialog;
 import rmutsb.mook.chatchon.makingfavorcoffee.ultility.MyConstant;
@@ -114,6 +116,11 @@ public class MainFragment extends Fragment{
             } else if (passwordString.equals(strings[5])) {
 
                 Toast.makeText(getActivity(), "Welcome " + strings[1], Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getActivity(), CoffeeActivity.class);
+                intent.putExtra("Login", strings);
+                getActivity().startActivity(intent);
+                getActivity().finish();
 
             } else {
                 myAlertDialog.myDialog(getResources().getString(R.string.title_passFalse),
